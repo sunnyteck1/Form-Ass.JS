@@ -1,4 +1,4 @@
-Design Login Form Project
+This is a Design Login Form Project.
 
 
 ‎
@@ -10,7 +10,7 @@ Design Login Form Project
 ‎
 
 
-‎1. Red border around email, password, and username input fields.
+‎1. Red border around username, password, and email input fields.
 
 ‎2.Input field borders change to blue after submission.
 
