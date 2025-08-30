@@ -55,6 +55,8 @@
             <br/>
             <br/>
             <button type="button" id="LoginBtn">LOGIN</button>
+
+            <p id="successMessage" style="color: green; display: none;">Submitted successfully...!</p>
         </form>
         <br/>
         <a href="#">Forget Password</a><br/><br/>
@@ -64,19 +66,31 @@
     </div>
 </body>
 <script>
-   const button = document.getElementById("LoginBtn");
-   const form = document.getElementById("container");
+  const form = document.querySelector("form");
+  const button = document.getElementById("LoginBtn");
+  const successMessage = document.getElementById("successMessage");
 
-   button.addEventListener("click",() => {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // prevent actual submission
 
-     const inputs = form. querySelectorAll("input");
+    if (form.checkValidity()) {
+      // Style inputs
+      const inputs = form.querySelectorAll("input");
+      inputs.forEach(input => {
+        input.style.border = "1px solid blue";
+      });
 
-     inputs.forEach(input => {
-        input.style.border = " 1px solid blue";   
-    });
+      // Style button
+      button.style.backgroundColor = "green";
 
-    button.style.backgroundColor = "green";
-     });
-
+      // Show success message
+      successMessage.style.display = "block";
+      successMessage.textContent = "Submitted successfully...!";
+    } else {
+      // Show browser validation
+      form.reportValidity();
+    }
+  });
 </script>
+
 </html>
